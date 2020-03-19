@@ -27,11 +27,14 @@ if __name__ == "__main__":
 	def getCSV():
 		df = pd.read_csv("result.csv")
 		label_result["text"] = format_csv(df)
+		button.configure(state="disabled")
 		
 	def import_files():
 		files = [file for file in os.listdir("./Accounts")]
 		for file in files:
 			label_files["text"] += format_files(file)
+			button1.configure(state="disabled")
+
 			
 
 			
@@ -46,6 +49,8 @@ if __name__ == "__main__":
 
 	button1 = tk.Button(frame, text="Invoice", command=lambda: import_files(), bg="gray")
 	button1.place(relx=0.4, rely=0, relwidth=0.1, relheight=0.05)
+
+
 
 
 
